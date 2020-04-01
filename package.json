@@ -1,0 +1,26 @@
+{
+  "name": "reminderBot",
+  "version": "1.0.0",
+  "description": "Discord Reminder Bot",
+  "main": "index.js",
+  "dependencies": {
+    "discord.js": "^12.1.1",
+    "nodemon": "^2.0.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mcolligan/reminderBot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mcolligan/reminderBot/issues"
+  },
+  "homepage": "https://github.com/mcolligan/reminderBot#readme"
+}

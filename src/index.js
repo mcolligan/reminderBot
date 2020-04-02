@@ -5,7 +5,7 @@ const client = new Discord.Client();
 
 client.once('ready', () => {
   console.log(`Bot Start Time: ${new Date()}`);
-  // console.log('--', client.channels)
+
   cron.schedule('30 12 * * *', () => {
     client.channels.cache.get('695103171017834557').send(`Yay. Lunch Time!`);
   });

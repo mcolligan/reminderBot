@@ -3,16 +3,26 @@ const cron = require('node-cron');
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
-client.once('ready', () => {
-  console.log(`Bot Start Time: ${new Date()}`);
+const today = () => {
+  let day = new Date();
+  return day.getDay();
+};
 
-  // Sendind to tester channel - change to general when ready...or somewhere
+client.once('ready', () => {
+  console.log(`Ava Start Time: ${new Date()}`);
+
   cron.schedule('30 12 * * *', () => {
-    client.channels.cache.get('695103171017834557').send(`Yay. Lunch Time!`);
+    if (today() !== 0) {
+      client.channels.cache.get('696742553118179348').send(`Yay. Lunch Time!`);
+    }
   });
 
   cron.schedule('30 17 * * *', () => {
-    client.channels.cache.get('695103171017834557').send(`Dinner Time! Enjoy.`);
+    let now = today();
+
+    if (now !== 6 && now !== 0) {
+      client.channels.cache.get('696742553118179348').send(`Dinner Time! Enjoy.`);
+    }
   });
 });
 

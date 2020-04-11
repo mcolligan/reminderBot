@@ -1,4 +1,4 @@
-const { token, sd, rem, t } = require('../config.js');
+const { token, sd, rem } = require('../config.js');
 const cron = require('node-cron');
 const Discord = require('discord.js');
 const client = new Discord.Client();
@@ -10,6 +10,12 @@ const today = () => {
 
 client.once('ready', () => {
   console.log(`Ava Start Time: ${new Date()}`);
+
+  cron.schedule('55 08 * * *', () => {
+    if (today() !== 0) {
+      client.channels.cache.get(sd).send(`@everyone Good Morning. Let's stand up`);
+    }
+  });
 
   cron.schedule('45 19 * * *', () => {
     let now = today();

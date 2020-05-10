@@ -9,13 +9,15 @@ const today = () => {
 };
 
 client.once('ready', () => {
-  console.log(`Ava Start Time: ${new Date()}`);
+  console.log(`Dolores Start Time: ${new Date()}`);
 
-  cron.schedule('55 08 * * *', () => {
-    if (today() !== 0) {
-      client.channels.cache.get(sd).send(`@everyone Good Morning. Let's stand up`);
-    }
-  });
+  // cron.schedule('55 08 * * *', () => {
+  //   if (today() !== 0) {
+  //     client.channels.cache
+  //       .get(sd)
+  //       .send(`@everyone Good Morning. Let's stand up`);
+  //   }
+  // });
 
   cron.schedule('45 19 * * *', () => {
     let now = today();
@@ -34,6 +36,11 @@ client.once('ready', () => {
   cron.schedule('30 12 * * *', () => {
     if (today() !== 0) {
       client.channels.cache.get(rem).send(`Yay. Lunch Time!`);
+    } else {
+      let remCh = client.channels.cache.get(rem);
+      remCh.messages.fetch({ limit: 15 }).then((msg) => {
+        remCh.bulkDelete(msg);
+      });
     }
   });
 

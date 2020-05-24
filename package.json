@@ -1,11 +1,12 @@
 {
-  "name": "reminderBot",
+  "name": "reminderbot",
   "version": "1.0.0",
   "description": "Discord Reminder Bot",
   "main": "index.js",
   "dependencies": {
     "discord.js": "^12.1.1",
     "dotenv": "^8.2.0",
+    "googleapis": "^39.2.0",
     "node-cron": "^2.0.3",
     "nodemon": "^2.0.2"
   },

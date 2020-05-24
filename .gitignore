@@ -1,6 +1,8 @@
 node_modules
 .env
 old.js
+credentials.json
+token.json
 
 
 

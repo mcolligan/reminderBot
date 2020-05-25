@@ -31,14 +31,14 @@ Fields for .env are:
 3. Google Canlendar ID
 4. Google API credentials dir path
 5. Anything else you want to keep secret
-6. Addjust the config.js file accordingly
+6. Adjust the config.js file accordingly
 
 _If you work at Galvanize, and your name is Teddi, I will supply this for you_
 
-###### Spin it up
+## Spin it up from the root directory.
 
 ```
 $ npm start
 ```
 
-_Again, if your name is Teddi contact me if there are any question._
+_Again, if your name is Teddi contact me if there are any questions._

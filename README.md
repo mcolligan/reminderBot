@@ -6,8 +6,10 @@ Discord Reminder Bot
 
 ###### Discord
 
-Go here to create you invite link and add your bot- https://discord.com/developers/applications
+Go here to create your invite link and add your bot- https://discord.com/developers/applications
 Docs: https://discordjs.guide/preparations/adding-your-bot-to-servers.html#bot-invite-links
+
+Add your discord key to .env file
 
 ###### Google API
 

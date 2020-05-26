@@ -85,7 +85,7 @@ const getCalendarEvents = (cb) => {
       {
         calendarId: calId,
         timeMin: new Date().toISOString(),
-        maxResults: 20,
+        maxResults: 15,
         singleEvents: true,
         orderBy: 'startTime',
       },

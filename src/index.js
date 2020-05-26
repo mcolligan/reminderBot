@@ -9,9 +9,6 @@ const client = new Discord.Client();
 
 /////////////////////////////////////////////////////
 
-let test = '41 14 * * *';
-let pairFeedbackTime = '';
-
 client.once('ready', () => {
   console.log(`Dolores Start Time: ${new Date()}`);
 
@@ -55,7 +52,8 @@ client.once('ready', () => {
 /////////////////////////////////////////////////////////////////
 
 //        PAIR FEEDBACK                                     //
-cron.schedule(`${test}`, () => {
+cron.schedule('30 08 * * *', () => {
+  let pairFeedbackTime = '';
   getCalendarEvents((res) => {
     if (res) {
       pairFeedbackTime = makeCronString(res.pairRef);
@@ -65,7 +63,6 @@ cron.schedule(`${test}`, () => {
           .send(
             `@Junior Please fill out the pair reflection form. Thank you and good day -- ${prLink}`
           );
-        pairFeedbackTime = '';
       });
     }
   });

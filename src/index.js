@@ -51,12 +51,15 @@ client.once('ready', () => {
   //////////////////////////////////////////////////////////////
 
   //        PAIR FEEDBACK                                     //
+  let pairFeedbackJob;
   cron.schedule('30 08 * * *', () => {
-    let pairFeedbackTime = '';
+    if (pairFeedbackJob) {
+      pairFeedbackJob.destroy();
+    }
     getCalendarEvents((res) => {
       if (res) {
-        pairFeedbackTime = makeCronString(res.pairRef);
-        cron.schedule(`${pairFeedbackTime}`, () => {
+        let pairFeedbackTime = makeCronString(res.pairRef);
+        pairFeedbackJob = cron.schedule(`${pairFeedbackTime}`, () => {
           client.channels.cache
             .get(jr)
             .send(

@@ -32,12 +32,6 @@ client.once('ready', () => {
   cron.schedule('30 12 * * *', () => {
     if (today() !== 0) {
       client.channels.cache.get(rem).send(`Yay. Lunch Time!`);
-    } else {
-      // clear reminders channel on sundays - day 0 Teddi :)
-      let remCh = client.channels.cache.get(rem);
-      remCh.messages.fetch({ limit: 15 }).then((msg) => {
-        remCh.bulkDelete(msg);
-      });
     }
   });
 
@@ -67,6 +61,15 @@ client.once('ready', () => {
             );
         });
       }
+    });
+  });
+
+  //              Clear Reminders Channel                         //
+  // Sunday is day 0 for anybody wondering....Ted
+  cron.schedule('11 11 * * SUN', () => {
+    let remCh = client.channels.cache.get(rem);
+    remCh.messages.fetch({ limit: 15 }).then((msg) => {
+      remCh.bulkDelete(msg);
     });
   });
   /////////////////////////////////////////////////////////////////

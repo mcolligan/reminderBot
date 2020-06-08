@@ -64,7 +64,7 @@ client.once('ready', () => {
     });
   });
 
-  //              Clear Reminders Channel                         //
+  //              Clear Reminders Channel on Sunday                //
   // Sunday is day 0 for anybody wondering....Ted
   cron.schedule('11 11 * * SUN', () => {
     let remCh = client.channels.cache.get(rem);
